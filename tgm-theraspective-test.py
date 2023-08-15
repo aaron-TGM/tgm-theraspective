@@ -26,8 +26,12 @@ def scrape_reviews():
             soup = BeautifulSoup(response.content, 'html.parser')
             reviews_list = soup.find('ul', {'class': 'ais-Hits-list'})
             
-            reviews = [li.text.strip() for li in reviews_list.find_all('li', {'class': 'ais-Hits-item'})]
-            all_reviews.extend(reviews)
+            if reviews_list:
+                reviews = [li.text.strip() for li in reviews_list.find_all('li', {'class': 'ais-Hits-item'})]
+                all_reviews.extend(reviews)
+            else:
+                print("Error: reviews_list not found!")
+                break  # Stop if reviews_list not found or adjust based on your needs.
             
             prev_page_button = soup.find('button', {'aria-label': 'previous-page', 'class': 'css-d85ps1'})
             if prev_page_button is None:
@@ -38,10 +42,9 @@ def scrape_reviews():
 
         except requests.RequestException as e:
             print(f"Error fetching page {page}: {e}")
-            break  # Stop scraping on error or adjust based on your needs.
+            break  # Stop scraping on error.
 
     return '<br>'.join(all_reviews)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
-
