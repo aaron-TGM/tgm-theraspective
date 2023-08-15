@@ -1,1 +1,1 @@
-web: python tgm-theraspective-test.py
+web: gunicorn tgm-theraspective-test.py
