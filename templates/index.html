@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+</head>
+<body>
+    <h1>Scraped Reviews</h1>
+    <ul>
+        {% for review in reviews %}
+        <li>
+            <strong>Name:</strong> {{ review['Reviewer Name'] }}<br>
+            <strong>Date:</strong> {{ review['Date'] }}<br>
+            <strong>Review:</strong> {{ review['Review Content'] }}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/download">Download Reviews as CSV</a>
+</body>
+</html>
