@@ -39,7 +39,7 @@ def scrape_reviews():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
 
-    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+    browser = webdriver.Chrome(options=chrome_options)
     browser.get(url)
 
     # Close age verification
