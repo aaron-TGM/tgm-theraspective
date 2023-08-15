@@ -1,1 +1,1 @@
-web: gunicorn tgm-therspective-test:app
+web: gunicorn tgm_therspective_test:app
