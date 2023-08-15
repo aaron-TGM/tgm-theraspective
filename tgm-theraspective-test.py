@@ -9,7 +9,7 @@ from time import sleep
 
 app = Flask(__name__)
 
-BASE_URL = "https://www.iheartjane.com/brands/34404/camino/products/1184332/camino-10-3-sleep-blackberry-dream-10-pk-100-mg-thc-30-mg-cbn?page={}"
+BASE_URL = "https://www.iheartjane.com/brands/34404/camino/products/1035361/camino-pride-passionfruit-punch-20-pk-100-mg-thc?page={}"
 
 @app.route('/')
 def scrape_reviews():
